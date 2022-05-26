@@ -25,8 +25,10 @@ public class TorpedoMovement : MonoBehaviour
 
     private void Movement()
     {
-        Debug.Log("Hallo ich bin jules torpedo");
-        transform.Translate(-transform.forward * speed);
+        //Debug.Log("Hallo ich bin jules torpedo");
+
+        this.transform.position += transform.forward * speed;
+        // transform.Translate(transform.forward * speed);
     }
 
     

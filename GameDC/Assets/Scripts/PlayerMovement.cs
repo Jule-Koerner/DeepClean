@@ -130,8 +130,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             Instantiate(torpedo, transform.GetChild(0).position, transform.rotation);
-            //torpedo.transform.Translate(transform.forward * 0.005f);
-        
+            
 
         }
     }

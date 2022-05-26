@@ -11,18 +11,17 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private GameObject ui;
 
-    [SerializeField] public float speed = 0.05f;
-    private float speedChange = 0.005f;
+    [SerializeField] public float speed = 5f;
+    private float speedChange = 1f;
     
-    private float maxSpeed = 0.3f;
-    private float minSpeed = 0f;
+    private float maxSpeed = 10f;
+    private float minSpeed = 5f;
 
     private float rotationSpeed = 5;
 
     
     private float rot = 0f;
     private float rotY = 0f;
-
     private Rigidbody rb;
     
     //[SerializeField] private Transform startRay;
@@ -39,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     {
         propellerRotation = propeller.transform.rotation; 
         rb = GetComponent<Rigidbody>();
-        speedChange = speed / 2;
+        //speedChange = speed;
 
     }
 
@@ -49,14 +48,23 @@ public class PlayerMovement : MonoBehaviour
         // propeller.transform.rotation = Quaternion.Euler(propellerRotation.x + speed, propellerRotation.y, propellerRotation.z);
         // propellerRotation = propeller.transform.rotation; 
         propeller.transform.Rotate(0, speed*2, 0);
-        Speed();
+       
         Movement();
         Shoot();
-        //Speed
+        Speed();
+        Debug.Log("SPEEED"+ speed);
 
 
 
     }
+
+    private void FixedUpdate()
+    {
+        //Speed();
+        //rb.MovePosition(transform.position + transform.TransformDirection(transform.forward) * Time.deltaTime * speed);
+        transform.position += transform.forward * speed * Time.deltaTime;
+    }
+
 
     void Speed()
     {
@@ -64,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             speed += speedChange;
-            //ui.GetComponent<DisplaySpeed>().increaseSpeed();
+            ui.GetComponent<DisplaySpeed>().increaseSpeed();
             
         }
         
@@ -72,9 +80,9 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             speed -= speedChange;
-            //ui.GetComponent<DisplaySpeed>().decreaseSpeed();
+            ui.GetComponent<DisplaySpeed>().decreaseSpeed();
         }
-        // speed = Mathf.Clamp(speed, -maxSpeed, maxSpeed);
+        speed = Mathf.Clamp(speed, 5, maxSpeed);
 
     }
 
@@ -84,7 +92,8 @@ public class PlayerMovement : MonoBehaviour
         //transform.Translate(transform.forward * 0.0005f);
         //rb.AddRelativeForce(-transform.forward * 0.05f);
         // Move position ist bisschen wie motor, moved genau da hin wo ich will (full direct contro, not affected by physics itself but works for affecting others)
-        rb.MovePosition(transform.position + transform.TransformDirection(transform.forward) * speed);
+        //rb.MovePosition(transform.position + transform.TransformDirection(transform.forward) * speed * Time.deltaTime);
+       // transform.Translate(transform.forward * speed * Time.deltaTime);
         //Rotation
          mouseAxisX = Input.GetAxis("Mouse X");
          rot += mouseAxisX * rotationSpeed/2;
@@ -95,18 +104,23 @@ public class PlayerMovement : MonoBehaviour
          //Rotation
          mouseAxisY = Input.GetAxis("Mouse Y");
          rotY += mouseAxisY * rotationSpeed/2;
+         
+        // Debug.Log("angle" + rotY);
          //rot = Mathf.Clamp(rot, -100f, 100f);
          //transform.eulerAngles = new (90f, rot, 0f);
-        
-         rb.rotation = Quaternion.Euler(-rotY, rot,  0f);
-         if ((transform.forward.z < 0 && speed > 0) || transform.forward.z > 0 && speed < 0)
-         {
-             speed *= -1;
-             // transform.forward = new Vector3(transform.forward.x * -1, transform.forward.y * -1, transform.forward.z);
-             // rb.rotation = Quaternion.Euler(rotY, rot,  0f);
-             
-         }
-         // Debug.Log(transform.forward +" speed: "+ speed);
+         
+         rot = Mathf.Clamp(rot, -90, 90);
+         //rotY = Mathf.Clamp(rot, -45, 90);
+
+         rb.MoveRotation(Quaternion.Euler(-rotY, rot, 0f));
+         // if ((transform.forward.z < 0 && speed > 0) || transform.forward.z > 0 && speed < 0)
+         // {
+         //     speed *= -1;
+         //     // transform.forward = new Vector3(transform.forward.x * -1, transform.forward.y * -1, transform.forward.z);
+         //     // rb.rotation = Quaternion.Euler(rotY, rot,  0f);
+         //     
+         // }
+         // // Debug.Log(transform.forward +" speed: "+ speed);
 
          // Debug.Log(rb.rotation);
         
@@ -129,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
+            Debug.Log("SHOOOOt");
             Instantiate(torpedo, transform.GetChild(0).position, transform.rotation);
             
 

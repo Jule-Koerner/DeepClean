@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 527.9967, y: 107.94288, z: 433.95483}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5340055092970647630}
   - {fileID: 7971284605499614359}
@@ -76,7 +77,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiateMin: 0
-  instantiateMax: 100
+  instantiateMax: 5
+  regularMaterial: {fileID: 0}
 --- !u!114 &7447730124503501313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +100,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4699475875911791879}
     m_Modifications:
+    - target: {fileID: -1559963901578424034, guid: 6e2cfc9ef89c1e34f9b097d2da2e39cf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -1559963901578424034, guid: 6e2cfc9ef89c1e34f9b097d2da2e39cf, type: 3}
       propertyPath: greyMaterial
       value: 
@@ -168,6 +174,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4699475875911791879}
     m_Modifications:
+    - target: {fileID: -6286357685015836612, guid: 803cdd536f620704bbdefa963d342c70, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -6286357685015836612, guid: 803cdd536f620704bbdefa963d342c70, type: 3}
       propertyPath: greyMaterial
       value: 

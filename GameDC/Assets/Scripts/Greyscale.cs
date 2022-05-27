@@ -45,8 +45,8 @@ public class Greyscale : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        makeGrey(transform.position, radius);
-    }
+    // private void Update()
+    // {
+    //     makeGrey(transform.position, radius);
+    // }
 }

@@ -1,13 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Win32.SafeHandles;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-
-public class CreateTile : MonoBehaviour
+public class Tile : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject trashPrefab;
@@ -22,10 +17,11 @@ public class CreateTile : MonoBehaviour
     private float zTerrainPos;
 
     private Terrain currentTerrain;
-    private List<Terrain> lastTerrains;
+    private Terrain lastTerrain;
     private Bounds currentBounds;
-    private TerrainData currentTerrainData; 
-    
+    private TerrainData currentTerrainData;
+    private List<GameObject> allTiles;
+
     public int depth = 20; //y axis
     public int width = 256;
     public int height = 256;
@@ -36,75 +32,14 @@ public class CreateTile : MonoBehaviour
     private float[,] currentHeights;
 
     public float scale = 20f;
-    // Update is called once per frame
-    void Awake()
-    {
-        currentTerrainObjects = new List<GameObject>(); 
-        currentTerrain = Terrain.CreateTerrainGameObject(new TerrainData()).GetComponent<Terrain>();
-        currentTerrainData = currentTerrain.terrainData;
-        currentTerrain.terrainData = GenerateTerrain(currentTerrainData);
-        startPosition = currentTerrain.transform.position;
-        player.transform.position = currentTerrain.terrainData.bounds.center + new Vector3(0, 3, 0); 
-        currentTerrain.materialTemplate = terrainMaterial;
-
-        Debug.Log(currentTerrain.terrainData.size);
-
-    }
-
-    void Update()
-    {
-        Vector3 playerPosition = player.transform.position;
-        Vector3 terrainPosition = currentTerrain.transform.position;
-        // Debug.Log("Player position: " + playerPosition + " terrain Position: " + terrainPosition);
-        if (playerPosition.z >= terrainPosition.z - width)
-        {
-            currentTerrainData = new TerrainData();
-            
-            //set terrain width, height, length
-            CreateTileInstance();
-        }
-        
-        DeleteInstance();
-     
-    }
-
-    void DeleteInstance()
-    {
-        if (lastTerrains.Count > 0 && lastTerrains[0] != null && lastTerrains[0].transform.position.z + height + 15 < player.transform.position.z)
-        {
-            Destroy(lastTerrains[0].gameObject);
-            lastTerrains.RemoveAt(0);
-            // for (int i = 0; i < lastNInstantiatedObjects; i++)
-            // {
-            //     Destroy(currentTerrainObjects[i]);
-            // }
-            // lastNInstantiatedObjects = 0; 
-            foreach (var terrainObject in currentTerrainObjects)
-            {
-                if (terrainObject && terrainObject.transform.position.z + 30 < player.transform.position.z)
-                {
-                    if (terrainObject.tag == "Flock")
-                    {
-                        foreach (var fish in terrainObject.GetComponent<Flock>().allUnits)
-                        {
-                            Destroy(fish.gameObject);
-                        }
-                        Destroy(terrainObject);
-                    }
-
-                    Destroy(terrainObject);
-                }
-            }
-        }
-    }
-
     void CreateTileInstance()
     {
-        lastTerrains.Add(currentTerrain);
+        
         currentTerrainData.size = new Vector3(width, depth, height);
+        lastTerrain = currentTerrain;
         currentTerrain = Terrain.CreateTerrainGameObject(GenerateTerrain(currentTerrainData)).GetComponent<Terrain>();
         currentTerrain.materialTemplate = terrainMaterial;
-        currentTerrain.transform.position = new Vector3(startPosition.x, startPosition.y, lastTerrains.Last().transform.position.z + height -10);
+        currentTerrain.transform.position = new Vector3(startPosition.x, startPosition.y, player.transform.position.z );
         PopulateTerrain();
     }
 
@@ -124,7 +59,6 @@ public class CreateTile : MonoBehaviour
         for (int i = 0; i < maxTrash; i++)
         {
             SetPrefab(trashPrefab);   
-            Debug.Log("Trash was setted");
         }
     }
 
@@ -177,7 +111,7 @@ public class CreateTile : MonoBehaviour
     float scalingFactor(int maxY, float value, float scaleMax)
     {
         return Mathf.Pow(value, 2) / Mathf.Pow(maxY / 2, 2) * scaleMax - maxY * value / Mathf.Pow(maxY / 2, 2) *
-            scaleMax + scaleMax;
+            scaleMax + scaleMax + 0.1f;
     }
 
     float CalculateHeight(int x, int y)

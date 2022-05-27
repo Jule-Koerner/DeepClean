@@ -20,7 +20,7 @@ public class CameraMovement : MonoBehaviour
 
 
     // Update is called once per frame //Evtl besser mit FixedUpdate
-    void FixedUpdate()
+    void LateUpdate()
     {
         if (submarine.gameObject.GetComponent<PlayerMovement>().speed < 0 && offset.z < 0)
         {

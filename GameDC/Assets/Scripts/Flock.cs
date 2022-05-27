@@ -8,6 +8,8 @@ public class Flock : MonoBehaviour
 {
     [Header("Spawn Setup")]
     [SerializeField] private FlockUnit flockUnitPrefab;
+
+    [SerializeField] private Material[] _materials;
     [SerializeField] private int flockSize;
     [SerializeField] private Vector3 spawnBounds;
 
@@ -71,7 +73,7 @@ public class Flock : MonoBehaviour
     {
         GenerateUnits();
     }
-
+    
     private void Update()
     {
         for (int i = 0; i < allUnits.Length; i++)
@@ -90,7 +92,8 @@ public class Flock : MonoBehaviour
             var spawnPosition = transform.position + randomVector;
             var rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
             allUnits[i] = Instantiate(flockUnitPrefab, spawnPosition, rotation);
-            allUnits[i].transform.localScale = Vector3.one * UnityEngine.Random.Range(1f, 3f);
+            allUnits[i].GetComponent<Renderer>().material = _materials[UnityEngine.Random.Range(0, _materials.Length)];
+            allUnits[i].transform.localScale = Vector3.one * UnityEngine.Random.Range(1f, 5f);
             allUnits[i].AssignFlock(this);
             allUnits[i].InitializeSpeed(UnityEngine.Random.Range(minSpeed, maxSpeed));
         }

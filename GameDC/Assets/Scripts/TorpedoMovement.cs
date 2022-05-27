@@ -6,10 +6,10 @@ using UnityEngine.UIElements;
 
 public class TorpedoMovement : MonoBehaviour
 {
-    [SerializeField] float speed = 0.5f;
+    [SerializeField] public float speed = 0.5f;
 
-    [SerializeField] private GameObject submarine;
-    [SerializeField] private int  distance = 40;
+    public GameObject submarine;
+    [SerializeField] private int  distance = 4000;
     
     
 

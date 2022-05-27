@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // propeller.transform.rotation = Quaternion.Euler(propellerRotation.x + speed, propellerRotation.y, propellerRotation.z);
         // propellerRotation = propeller.transform.rotation; 
-        propeller.transform.Rotate(0, speed*2, 0);
+        propeller.transform.Rotate(0, speed, 0);
         Speed();
         Movement();
         Shoot();
@@ -129,8 +129,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            Instantiate(torpedo, transform.GetChild(0).position, transform.rotation);
-            
+            GameObject torpedoObject = Instantiate(torpedo, transform.GetChild(0).position, transform.rotation);            torpedoObject.GetComponent<TorpedoMovement>().speed = speed * 5;
+            torpedoObject.GetComponent<TorpedoMovement>().submarine = gameObject;
+            torpedoObject.GetComponent<TorpedoMovement>().speed = speed * 5;
 
         }
     }

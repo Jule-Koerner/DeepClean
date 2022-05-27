@@ -9,7 +9,7 @@ public class Colorer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(transform.childCount > 0)
+        if(transform.childCount > 1)
         {
             foreach(Transform child in transform)
             {

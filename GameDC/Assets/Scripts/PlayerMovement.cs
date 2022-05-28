@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] private GameObject ui;
+    [SerializeField] private int numTorpedos = 20;
+    private int currentTorpedo = 0;
 
     [SerializeField] public float speed = 5f;
     private float speedChange = 1f;
@@ -40,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         //speedChange = speed;
 
+        ui.GetComponent<DisplaySpeed>().torpedoCount.text = "" + numTorpedos;
     }
 
     // Update is called once per frame
@@ -51,8 +54,9 @@ public class PlayerMovement : MonoBehaviour
         Speed();
         Movement();
         Shoot();
-        Speed();
+        //Speed();
         Debug.Log("SPEEED"+ speed);
+      
 
 
 
@@ -71,8 +75,10 @@ public class PlayerMovement : MonoBehaviour
         //Increase Speed
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            speed += speedChange;
+            speed += 1;
+          
             ui.GetComponent<DisplaySpeed>().increaseSpeed();
+            Debug.Log("END UIIIII");
 
         }
 
@@ -143,11 +149,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            Debug.Log("SHOOOOt");
-            Instantiate(torpedo, transform.GetChild(0).position, transform.rotation);
-
-
+            if (numTorpedos != 0)
+            {
+                Instantiate(torpedo, transform.GetChild(0).position, transform.rotation);
+                numTorpedos--;
+                ui.GetComponent<DisplaySpeed>().TorpedoCount(numTorpedos);
+            }
+        }
+        else
+        {
+            //Final Scene
         }
     }
-
 }

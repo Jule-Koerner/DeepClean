@@ -25,7 +25,7 @@ public class TorpedoMovement : MonoBehaviour
 
     private void Movement()
     {
-        Debug.Log("Hallo ich bin jules torpedo");
+       // Debug.Log("Hallo ich bin jules torpedo");
 
         this.transform.position += transform.forward * speed * Time.deltaTime;
         // transform.Translate(transform.forward * speed);
@@ -34,9 +34,12 @@ public class TorpedoMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Trash"))
-        {
-            Destroy(other.gameObject);
-        }
+        Debug.Log("IMMMM INNNNN COLLIDER");
+        Destroy(other.gameObject);
+        
+        // if (other.gameObject.tag.Equals("Cube"))
+        // {
+        //     Destroy(other.gameObject);
+        // }
     }
 }

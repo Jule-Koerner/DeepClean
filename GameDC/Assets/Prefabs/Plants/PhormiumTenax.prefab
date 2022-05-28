@@ -11,11 +11,9 @@ GameObject:
   - component: {fileID: 3753905863010388664}
   - component: {fileID: 5580816978991997055}
   - component: {fileID: 7580213079291446407}
-  - component: {fileID: -8189564927255449119}
   - component: {fileID: -5190055938724474969}
-  - component: {fileID: -116248766750901806}
-  - component: {fileID: -720764444310655115}
-  m_Layer: 0
+  - component: {fileID: 6591205443296367476}
+  m_Layer: 4
   m_Name: PhormiumTenax
   m_TagString: Plant
   m_Icon: {fileID: 0}
@@ -31,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3408297340083080579}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 110, y: 110, z: 110}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,29 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-8189564927255449119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3408297340083080579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7e59fd2be6a1548a2e32dbbea07c99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseColors:
-  - {r: 0.5527841, g: 0.7830189, b: 0.42475083, a: 0}
-  - {r: 0.8207547, g: 0.75160956, b: 0.30584726, a: 0}
-  - {r: 0.7169812, g: 0.36863655, b: 0.36863655, a: 0}
-  - {r: 0.7169812, g: 0.4024564, b: 0.63502526, a: 0}
-  - {r: 0.56470275, g: 0.57881653, b: 0.8867924, a: 0}
-  - {r: 0.113296546, g: 0.35073146, b: 0.3584906, a: 0}
-  - {r: 0.6603774, g: 0.5355555, b: 0.14017446, a: 0}
-  - {r: 0.20096922, g: 0.3018868, b: 0.02990388, a: 0}
-  - {r: 0.9339623, g: 0.5066305, b: 0.6856785, a: 0}
-  - {r: 0.27033645, g: 0.764151, b: 0.62512827, a: 0}
 --- !u!65 &-5190055938724474969
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -118,12 +93,12 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3408297340083080579}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.11660109, y: 0.12097819, z: 0.073498145}
   m_Center: {x: -0.0030836442, y: 0.0008774011, z: 0.03667304}
---- !u!114 &-116248766750901806
+--- !u!114 &6591205443296367476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,23 +107,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3408297340083080579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37a5adf9ef9206e4ba2c77e5bd8089e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bbd4bdb258a24d46987c3887b4c7685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   instantiateMin: 1
-  instantiateMax: 5
+  instantiateMax: 3
   regularMaterial: {fileID: 0}
---- !u!114 &-720764444310655115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3408297340083080579}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc15a1b15689c9c4a83b677929d265b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 30
-  greyMaterial: {fileID: 2100000, guid: 25dd5a21fd123ba49aeed7128d1891fd, type: 2}

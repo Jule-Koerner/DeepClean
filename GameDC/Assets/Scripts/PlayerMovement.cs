@@ -51,11 +51,6 @@ public class PlayerMovement : MonoBehaviour
         Speed();
         Movement();
         Shoot();
-        Speed();
-        Debug.Log("SPEEED"+ speed);
-
-
-
     }
 
     private void FixedUpdate()
@@ -143,10 +138,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            Debug.Log("SHOOOOt");
             Instantiate(torpedo, transform.GetChild(0).position, transform.rotation);
-
-
         }
     }
 

@@ -16,7 +16,6 @@ public class CreateTile : MonoBehaviour
     private int objectsPertileCounter = 0;
     
     [SerializeField] GameObject[] prefabs;
-    [SerializeField] private LayerMask terrainLayerMask; 
     [SerializeField] private Material terrainMaterial; 
     private float xTerrainPos;
     private float zTerrainPos;
@@ -31,10 +30,7 @@ public class CreateTile : MonoBehaviour
     public int height = 256;
     private Vector3 startPosition;
     private List<GameObject> currentTerrainObjects;
-    private int lastNInstantiatedObjects = 0; 
     
-    private float[,] currentHeights;
-
     public float scale = 20f;
     // Update is called once per frame
     void Awake()
@@ -110,7 +106,6 @@ public class CreateTile : MonoBehaviour
 
     void PopulateTerrain()
     {
-        int counter = 0; 
         for (int j = 0; j < maxObjectsPerTile; j++)
         {
             GameObject prefab = prefabs[UnityEngine.Random.Range(0, prefabs.Length)];
@@ -121,18 +116,24 @@ public class CreateTile : MonoBehaviour
             }
         }
   
-        for (int i = 0; i < maxTrash; i++)
-        {
-            SetPrefab(trashPrefab);   
-            Debug.Log("Trash was setted");
-        }
+        // for (int i = 0; i < maxTrash; i++)
+        // {
+        //     SetPrefab(trashPrefab);   
+        // }
+        SetPrefab(trashPrefab);   
+
     }
 
     void SetPrefab(GameObject prefab)
     {
-        float randX = UnityEngine.Random.Range(currentTerrain.transform.position.x, currentTerrain.transform.position.x + width);
+        float randX = UnityEngine.Random.Range(currentTerrain.transform.position.x + width / 2 - 18, currentTerrain.transform.position.x + width / 2 + 18);;
         float randZ = UnityEngine.Random.Range(currentTerrain.transform.position.z, currentTerrain.transform.position.z + height);
         Vector3 position = new Vector3(randX, 0, randZ);
+        if (prefab.tag == "Trash")
+        {
+            position.x = UnityEngine.Random.Range(currentTerrain.transform.position.x + width / 2 - 10, currentTerrain.transform.position.x + width / 2 + 10);
+        }
+
         position.y = currentTerrain.SampleHeight(position);
                 
         if (prefab.tag == "Flock")
@@ -140,12 +141,12 @@ public class CreateTile : MonoBehaviour
             // position.x = UnityEngine.Random.Range(currentTerrain.terrainData.bounds.center.x-10, currentTerrain.terrainData.bounds.center.x+10 ); 
             position.y += 5;
         }
-                
+
+      
         GameObject instantiatedObject = Instantiate (prefab, position, prefab.transform.rotation);
-        instantiatedObject.transform.localScale.Scale(new Vector3(Random.Range(0.5f, 2), Random.Range(0.5f, 2), Random.Range(0.5f, 2)));
+        // instantiatedObject.transform.localScale.Scale(new Vector3(Random.Range(0.5f, 1), Random.Range(0.5f, 1), Random.Range(0.5f, 1)));
+        instantiatedObject.transform.lossyScale.Scale(new Vector3(Random.Range(0.5f, 1.5f), Random.Range(0.5f, 1.5f), Random.Range(0.5f, 1.5f))); 
         currentTerrainObjects.Add(instantiatedObject);
-        lastNInstantiatedObjects++;
-        Debug.Log("Prefab was added to list. current n: " + lastNInstantiatedObjects);  
     }
     TerrainData GenerateTerrain(TerrainData terrainData)
     {
@@ -170,7 +171,6 @@ public class CreateTile : MonoBehaviour
             }
         }
 
-        currentHeights = heights;
         return heights;
     }
 

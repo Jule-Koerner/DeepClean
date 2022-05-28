@@ -50,5 +50,5 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - Color_2252a2835c904cb493c94cc64abef1d9: {r: 0.6415094, g: 0.29352078, b: 0.29352078, a: 0}
-    - _PickVec: {r: 234, g: 0, b: 0, a: 0}
+    - _PickVec: {r: 135, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

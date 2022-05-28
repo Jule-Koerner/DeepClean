@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6832395458395738633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6832395458395738635}
+  - component: {fileID: 6832395458395738634}
+  - component: {fileID: 8375989536079770634}
+  m_Layer: 4
+  m_Name: Flock 5
+  m_TagString: Flock
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6832395458395738635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832395458395738633}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 249.10104, y: 27.72, z: 211.72842}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6832395458395738634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832395458395738633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf54baf167dadd45b07a3198d28fd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flockUnitPrefab: {fileID: 3458047585655636100, guid: 7641e4a4c472d414d8846cd11163954c, type: 3}
+  _materials:
+  - {fileID: 2100000, guid: e961b431244d79046b062d6788c1c044, type: 2}
+  - {fileID: 2100000, guid: 4d6e9cd3399f98246ab900d164a38aa8, type: 2}
+  - {fileID: 2100000, guid: b771f1f842a6e694b8ee15727cc15107, type: 2}
+  - {fileID: 2100000, guid: ff928a5485976a942a1a6bcdb2dd2160, type: 2}
+  - {fileID: 2100000, guid: 5d54943c617c5c8459f5aa781cbfd281, type: 2}
+  - {fileID: 2100000, guid: 3dcc54836b680b549901b113ae3fec86, type: 2}
+  - {fileID: 2100000, guid: daee4ff02f40b1a4488e3bc0467ffc42, type: 2}
+  - {fileID: 2100000, guid: e4b460a74a9b4654a8d078627d3bde99, type: 2}
+  flockSize: 10
+  spawnBounds: {x: 25, y: 10, z: 20}
+  _minSpeed: 1
+  _maxSpeed: 5
+  _cohesionDistance: 5
+  _avoidanceDistance: 5
+  _aligementDistance: 5.58
+  _obstacleDistance: 5
+  _boundsDistance: 13.7
+  _cohesionWeight: 6.01
+  _avoidanceWeight: 4.28
+  _aligementWeight: 4.6
+  _boundsWeight: 5.8
+  _obstacleWeight: 100
+--- !u!114 &8375989536079770634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832395458395738633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bbd4bdb258a24d46987c3887b4c7685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantiateMin: 1
+  instantiateMax: 2
+  regularMaterial: {fileID: 0}

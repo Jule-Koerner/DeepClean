@@ -10,7 +10,7 @@ public class OceanObject : MonoBehaviour
     [SerializeField] public int instantiateMax = 10;
     public Material regularMaterial; 
 
-    private void Start()
+    private void Awake()
     {
         Destroy(GetComponent<Rigidbody>());
         if (tag != "Flock")

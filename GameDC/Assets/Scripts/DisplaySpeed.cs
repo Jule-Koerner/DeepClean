@@ -48,15 +48,19 @@ public class DisplaySpeed : MonoBehaviour
     {
         if (index >= 0)
         {
-            speeds[index - 1].color = Color.black;
+            if (index == 0)
+            {
+                speeds[index].color = Color.black;
+            }
+            else
+            {
+                speeds[index - 1].color = Color.black;
+
+            }
             if (index != 0)
             {
                 index--;
             }
-          
         }
     }
-
-    //Only for Testing!
-
 }

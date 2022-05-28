@@ -91,9 +91,13 @@ public class Flock : MonoBehaviour
             randomVector = new Vector3(randomVector.x * spawnBounds.x, randomVector.y * spawnBounds.y, randomVector.z * spawnBounds.z);
             var spawnPosition = transform.position + randomVector;
             var rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
+            if (tag == "Seahorse")
+            {
+                rotation.x = -90; 
+            }
             allUnits[i] = Instantiate(flockUnitPrefab, spawnPosition, rotation);
-            allUnits[i].GetComponent<Renderer>().material = _materials[UnityEngine.Random.Range(0, _materials.Length)];
-            allUnits[i].transform.localScale = Vector3.one * UnityEngine.Random.Range(1f, 5f);
+            allUnits[i].GetComponent<MeshRenderer>().material = _materials[UnityEngine.Random.Range(0, _materials.Length)];
+            allUnits[i].transform.localScale *= UnityEngine.Random.Range(1f, 5f);
             allUnits[i].AssignFlock(this);
             allUnits[i].InitializeSpeed(UnityEngine.Random.Range(minSpeed, maxSpeed));
         }

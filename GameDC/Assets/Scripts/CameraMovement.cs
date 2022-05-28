@@ -12,15 +12,9 @@ public class CameraMovement : MonoBehaviour
     public Vector3 offset;
 
     public float smoothSpeed = 0.125f;
-    
-    
-    
-    //[SerializeField] private float rotSmoothing;
-    
-
 
     // Update is called once per frame //Evtl besser mit FixedUpdate
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (submarine.gameObject.GetComponent<PlayerMovement>().speed < 0 && offset.z < 0)
         {

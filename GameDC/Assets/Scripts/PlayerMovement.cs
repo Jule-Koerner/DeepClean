@@ -54,12 +54,6 @@ public class PlayerMovement : MonoBehaviour
         Speed();
         Movement();
         Shoot();
-        //Speed();
-        Debug.Log("SPEEED"+ speed);
-      
-
-
-
     }
 
     private void FixedUpdate()
@@ -76,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             speed += 1;
-          
+
             ui.GetComponent<DisplaySpeed>().increaseSpeed();
             Debug.Log("END UIIIII");
 

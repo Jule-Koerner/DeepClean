@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1757955391444845033}
   - component: {fileID: 457952594682975716}
   - component: {fileID: 6216392261520182843}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,9 +128,8 @@ GameObject:
   - component: {fileID: 3399695179555895858}
   - component: {fileID: -2507867753163724223}
   - component: {fileID: 5257260667621375008}
-  - component: {fileID: -677404904501799376}
   - component: {fileID: -9043843103407935130}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: BubbleCoral
   m_TagString: Plant
   m_Icon: {fileID: 0}
@@ -146,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 3455193176155539343}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1518000496226107422}
@@ -211,22 +210,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3455193176155539343}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7e59fd2be6a1548a2e32dbbea07c99, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bbd4bdb258a24d46987c3887b4c7685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColors:
-  - {r: 0.5527841, g: 0.7830189, b: 0.42475083, a: 0}
-  - {r: 0.8207547, g: 0.75160956, b: 0.30584726, a: 0}
-  - {r: 0.7169812, g: 0.36863655, b: 0.36863655, a: 0}
-  - {r: 0.7169812, g: 0.4024564, b: 0.63502526, a: 0}
-  - {r: 0.56470275, g: 0.57881653, b: 0.8867924, a: 0}
-  - {r: 0.113296546, g: 0.35073146, b: 0.3584906, a: 0}
-  - {r: 0.6603774, g: 0.5355555, b: 0.14017446, a: 0}
-  - {r: 0.20096922, g: 0.3018868, b: 0.02990388, a: 0}
-  - {r: 0.9339623, g: 0.5066305, b: 0.6856785, a: 0}
-  - {r: 0.27033645, g: 0.764151, b: 0.62512827, a: 0}
+  instantiateMin: 1
+  instantiateMax: 3
+  regularMaterial: {fileID: 0}
 --- !u!65 &5257260667621375008
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -235,26 +226,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3455193176155539343}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 6.620397, y: 5.9750204, z: 3.43261}
   m_Center: {x: -0.22863746, y: 0.047809005, z: 1.7036259}
---- !u!114 &-677404904501799376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3455193176155539343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37a5adf9ef9206e4ba2c77e5bd8089e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instantiateMin: 1
-  instantiateMax: 10
-  regularMaterial: {fileID: 0}
 --- !u!114 &-9043843103407935130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +256,7 @@ GameObject:
   - component: {fileID: 1518000496226107422}
   - component: {fileID: 4763629159043773918}
   - component: {fileID: 2871130233795921193}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

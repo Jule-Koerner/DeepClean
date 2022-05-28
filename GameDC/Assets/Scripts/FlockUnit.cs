@@ -54,6 +54,7 @@ public class FlockUnit : MonoBehaviour
 
 		myTransform.forward = moveVector;
 		myTransform.position += moveVector * Time.deltaTime;
+	
 	}
 
 	

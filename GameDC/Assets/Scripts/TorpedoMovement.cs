@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,36 +11,32 @@ public class TorpedoMovement : MonoBehaviour
 
     public GameObject submarine;
     [SerializeField] private int  distance = 4000;
-    
-    
+
+
 
      private void Update()
      {
-         
+
          Movement();
-         // if (Vector3.Distance(submarine.transform.position, transform.position) >distance)
-         // {
-         //     Destroy(this.gameObject);
-         // }
+         if (Vector3.Distance(submarine.transform.position, transform.position) >distance)
+         {
+             Destroy(this.gameObject);
+         }
     }
 
     private void Movement()
     {
-       // Debug.Log("Hallo ich bin jules torpedo");
-
         this.transform.position += transform.forward * speed * Time.deltaTime;
-        // transform.Translate(transform.forward * speed);
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("IMMMM INNNNN COLLIDER");
-        Destroy(other.gameObject);
-        
-        // if (other.gameObject.tag.Equals("Cube"))
-        // {
-        //     Destroy(other.gameObject);
-        // }
+        if (other.CompareTag("Trash"))
+        {
+            other.gameObject.GetComponent<Trash>().Recolor();
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -28,7 +28,7 @@ public class DisplaySpeed : MonoBehaviour
              speeds[i].GetComponent<Image>().color = Color.black;
 
          }
-         
+
 
      }
     // Update is called once per frame
@@ -45,22 +45,16 @@ public class DisplaySpeed : MonoBehaviour
 
     public void decreaseSpeed()
     {
-        if (index >= 0)
+
+        if (index != 0)
         {
-            if (index != 0)
-            {
-                speeds[index - 1].color = Color.black;
-   
-            }
-            else
-            {
-                speeds[index].color = Color.black;
-            }
-            if (index != 0)
-            {
-                Debug.Log("Decrease speed obwohl ich nicht sollte");
-                index--;
-            }
+            speeds[index - 1].color = Color.black;
+            index--;
+
+        }
+        else
+        {
+            speeds[index].color = Color.black;
         }
     }
 

@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 4136023386280374550}
   - component: {fileID: 824579698453750748}
   - component: {fileID: 1516597727000507794}
-  - component: {fileID: 8007079090922708589}
-  - component: {fileID: -6286357685015836612}
-  m_Layer: 0
+  - component: {fileID: -453422187266958671}
+  m_Layer: 4
   m_Name: shell_upper
   m_TagString: Plant
   m_Icon: {fileID: 0}
@@ -94,12 +93,12 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899282280354793163}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.88583374, y: 0.13308555, z: 0.8107803}
   m_Center: {x: -0.0007382482, y: -0.023201596, z: -0.39594543}
---- !u!114 &8007079090922708589
+--- !u!114 &-453422187266958671
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,23 +107,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1899282280354793163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37a5adf9ef9206e4ba2c77e5bd8089e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bbd4bdb258a24d46987c3887b4c7685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   instantiateMin: 1
-  instantiateMax: 5
+  instantiateMax: 3
   regularMaterial: {fileID: 0}
---- !u!114 &-6286357685015836612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1899282280354793163}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc15a1b15689c9c4a83b677929d265b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 30
-  greyMaterial: {fileID: 2100000, guid: 25dd5a21fd123ba49aeed7128d1891fd, type: 2}

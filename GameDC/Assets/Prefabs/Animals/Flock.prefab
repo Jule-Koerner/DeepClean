@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6832395458395738635}
   - component: {fileID: 6832395458395738634}
   - component: {fileID: 8375989536079770634}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Flock
   m_TagString: Flock
   m_Icon: {fileID: 0}
@@ -45,25 +45,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf54baf167dadd45b07a3198d28fd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flockUnitPrefab: {fileID: 8758611107158745711, guid: 3874b8953e12cc8429199ae384bf5093, type: 3}
+  flockUnitPrefab: {fileID: 8434022612132889981, guid: a5248864622907e4d8bac6e748ed3056, type: 3}
   _materials:
-  - {fileID: 2100000, guid: 4d6e9cd3399f98246ab900d164a38aa8, type: 2}
-  - {fileID: 2100000, guid: 6bf5094c5e021a0479a6369f930b5dcf, type: 2}
-  - {fileID: 2100000, guid: b771f1f842a6e694b8ee15727cc15107, type: 2}
   - {fileID: 2100000, guid: e961b431244d79046b062d6788c1c044, type: 2}
+  - {fileID: 2100000, guid: 4d6e9cd3399f98246ab900d164a38aa8, type: 2}
+  - {fileID: 2100000, guid: b771f1f842a6e694b8ee15727cc15107, type: 2}
+  - {fileID: 2100000, guid: ff928a5485976a942a1a6bcdb2dd2160, type: 2}
+  - {fileID: 2100000, guid: 5d54943c617c5c8459f5aa781cbfd281, type: 2}
+  - {fileID: 2100000, guid: 3dcc54836b680b549901b113ae3fec86, type: 2}
+  - {fileID: 2100000, guid: daee4ff02f40b1a4488e3bc0467ffc42, type: 2}
+  - {fileID: 2100000, guid: e4b460a74a9b4654a8d078627d3bde99, type: 2}
   flockSize: 10
   spawnBounds: {x: 25, y: 10, z: 20}
   _minSpeed: 1
-  _maxSpeed: 5
-  _cohesionDistance: 5
-  _avoidanceDistance: 5
-  _aligementDistance: 5
+  _maxSpeed: 7.46
+  _cohesionDistance: 5.8
+  _avoidanceDistance: 5.33
+  _aligementDistance: 4.33
   _obstacleDistance: 5
   _boundsDistance: 13.7
   _cohesionWeight: 6
-  _avoidanceWeight: 6.88
-  _aligementWeight: 4.6
-  _boundsWeight: 5.8
+  _avoidanceWeight: 5.77
+  _aligementWeight: 5.3
+  _boundsWeight: 5.19
   _obstacleWeight: 100
 --- !u!114 &8375989536079770634
 MonoBehaviour:
